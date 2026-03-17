@@ -17,23 +17,11 @@ void loop() {
   {
     forward();
   }
-  forward();
-  delay(2000);
-
-  right();
-  delay(2000);
-
-  left();
-  delay(2000);
-
-  backward();
-  delay(2000);
-
 }
 
-void right()
+void forward()
 {
-  digitalWrite(4, 1);//RIGHT
+  digitalWrite(4, 1);//MOVE
   digitalWrite(5, 0);
   digitalWrite(6, 1);
   digitalWrite(7, 0);
@@ -46,9 +34,9 @@ void left()
   digitalWrite(7, 1);
   
 }
-void forward()
+void right()
 {
-  digitalWrite(4, 1);//FRONT
+  digitalWrite(4, 1);//RIGHT
   digitalWrite(5, 0);
   digitalWrite(6, 0);
   digitalWrite(7, 1);
