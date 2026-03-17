@@ -1,0 +1,64 @@
+void setup() {
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+}
+
+void loop() {
+  forward();
+  delay(2000);
+
+  right();
+  delay(2000);
+
+  left();
+  delay(2000);
+
+  backward();
+  delay(2000);
+
+  stop();
+  delay(2000);
+
+}
+
+void right()
+{
+  digitalWrite(4, 1);//RIGHT
+  digitalWrite(5, 0);
+  digitalWrite(6, 1);
+  digitalWrite(7, 0);
+}
+void left()
+{
+  digitalWrite(4, 0);//LEFT
+  digitalWrite(5, 1);
+  digitalWrite(6, 0);
+  digitalWrite(7, 1);
+  
+}
+void forward()
+{
+  digitalWrite(4, 1);//FRONT
+  digitalWrite(5, 0);
+  digitalWrite(6, 0);
+  digitalWrite(7, 1);
+
+}
+void backward()
+{
+  digitalWrite(4, 0);//BACK
+  digitalWrite(5, 1);
+  digitalWrite(6, 1);
+  digitalWrite(7, 0);
+
+}
+void stop()
+{
+  digitalWrite(4, 0);
+  digitalWrite(5, 0);
+  digitalWrite(6, 0);
+  digitalWrite(7, 0);
+
+}
