@@ -1,22 +1,43 @@
+#define trig 9
+#define echo 10
+
+long duration;
+int distance;
+
 void setup() {
   pinMode(4, OUTPUT);
   pinMode(5, OUTPUT);
   pinMode(6, OUTPUT);
   pinMode(7, OUTPUT);
-  pinMode(9,INPUT);
-
+  pinMode(trig,OUTPUT);
+  pinMode(echo,INPUT);
+  Serial.begin(9500);
 }
 
-void loop() {
-  int obstacle = digitalRead(9);
-  if(obstacle == 0 )
-  {
-    stop();
-  }
-  else
-  {
+void loop() 
+{
+  digitalWrite(trig, 0);
+  delayMicroseconds(2);
+  digitalWrite(trig, 1);
+  delayMicroseconds(10);
+  digitalWrite(trig, 0);
+
+  duration = pulseIn(echo,1);
+  distance = duration * 0.034/2;
+
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+
+  // If path clear -> move forward
+  if(distance > 20) {
     forward();
   }
+  else {
+    stop();
+  }
+
+  delay(200);
 }
 
 void forward()
