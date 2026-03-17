@@ -3,9 +3,20 @@ void setup() {
   pinMode(5, OUTPUT);
   pinMode(6, OUTPUT);
   pinMode(7, OUTPUT);
+  pinMode(9,INPUT);
+
 }
 
 void loop() {
+  int obstacle = digitalRead(9);
+  if(obstacle == 0 )
+  {
+    stop();
+  }
+  else
+  {
+    forward();
+  }
   forward();
   delay(2000);
 
@@ -16,9 +27,6 @@ void loop() {
   delay(2000);
 
   backward();
-  delay(2000);
-
-  stop();
   delay(2000);
 
 }
